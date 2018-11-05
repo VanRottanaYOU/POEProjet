@@ -46,6 +46,7 @@ export class CommandesComponent implements OnInit {
   ) {
     this.mapQuantiteRestante = new Map<String,number>();
     this.mapProduitsCommandes = new Map<String,number>();
+    this.mapPrixProduits = new Map<String,number>();
   }
 
   ngOnInit() {
@@ -53,7 +54,11 @@ export class CommandesComponent implements OnInit {
     this.recupAllProduits();
     this.recupAllProduitEnVente();
     this.generateCompteurCategorie();
-    console.log(this.mapQuantiteRestante)
+    this.recupPrixProduit();
+    this.listProduits=[];
+    console.log(this.mapQuantiteRestante);
+    console.log(this.mapProduitsCommandes);
+    console.log(this.mapPrixProduits)
   }
 
   recupAllProduits() {
@@ -80,7 +85,7 @@ export class CommandesComponent implements OnInit {
     return this.mapPrixProduits.get(libelle);
   }
 
-  recupPrixProduit(libelle){
+  recupPrixProduit(){
     let listproduitsenvente:Observable<ProduitsEnVente[]> = this.produitenventeservice.getProduitEnVente();
 
     listproduitsenvente.forEach(
@@ -108,6 +113,7 @@ export class CommandesComponent implements OnInit {
         produitsEnVente.forEach(
           (produitEnVente:ProduitsEnVente) => {
               this.mapQuantiteRestante.set(produitEnVente.libelle,0);
+              this.mapProduitsCommandes.set(produitEnVente.libelle,0);
           }
         );
       }
@@ -123,27 +129,20 @@ export class CommandesComponent implements OnInit {
                 produit.quantiteRestante
               );
             }else{
-              console.log("autre")
               if (produit.libelle === "Frite"){
-                console.log("produit.libelle "+produit.libelle)
                 this.mapQuantiteRestante.set(
                   "Grande", 
                   produit.quantiteRestante + this.mapQuantiteRestante.get("Frite")
                 );
-                console.log(produit.quantiteRestante)
                 this.mapQuantiteRestante.set(
                   "Moyenne", 
                   produit.quantiteRestante + this.mapQuantiteRestante.get("Frite")
                 );
-                console.log(produit.quantiteRestante)
                 this.mapQuantiteRestante.set(
                   "Petite", 
                   produit.quantiteRestante + this.mapQuantiteRestante.get("Frite")
                 );
-                console.log(produit.quantiteRestante)
               }else{
-                console.log("else")
-                console.log("else"+produit.libelle)
                 this.mapQuantiteRestante.set(
                               produit.libelle, 
                               produit.quantiteRestante + this.mapQuantiteRestante.get(produit.libelle)
@@ -162,7 +161,7 @@ export class CommandesComponent implements OnInit {
    */
   ajout(produit: Produits) {
     if ((this.getQuantiteRestante(produit.libelle) > 0) && ( this.getQuantiteCommandee(produit.libelle) < this.getQuantiteRestante(produit.libelle) ) ) {
-      this.setQuantiteCommandee(produit.libelle, this.getQuantiteRestante(produit.libelle) + 1);
+      this.setQuantiteCommandee(produit.libelle, this.getQuantiteCommandee(produit.libelle) + 1);
       this.ajouterPrix(this.getPrixProduit(produit.libelle));
       if (this.listProduits.length > 0) {
         let i;
@@ -192,8 +191,8 @@ export class CommandesComponent implements OnInit {
    * @param produit
    */
   retirer(produit: Produits) {
-    if (this.getQuantiteRestante(produit.libelle) > 0) {
-      this.setQuantiteCommandee(produit.libelle, this.getQuantiteRestante(produit.libelle) - 1);
+    if (this.getQuantiteCommandee(produit.libelle) > 0) {
+      this.setQuantiteCommandee(produit.libelle, this.getQuantiteCommandee(produit.libelle) - 1);
       this.retirerPrix(this.getPrixProduit(produit.libelle));
       let i;
       for (i = 0; (i < this.listProduits.length); i++) {
