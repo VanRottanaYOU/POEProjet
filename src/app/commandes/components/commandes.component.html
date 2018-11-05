@@ -33,3 +33,10 @@
         </li>
     </div>
 </div>
+
+<div>{{prixTotal}}</div>
+<div class="row encaissement">
+    <h3>TOTAL : {{prixTotal}} euros TTC</h3>
+    <button type="button" class="btn btn-success" (click)="encaisser()">Encaisser</button>
+    <button type="button" class="btn btn-danger" (click)="reinitialiser()">Annuler</button>
+</div>

@@ -53,7 +53,7 @@ export class CommandesComponent implements OnInit {
 
     this.recupAllProduits();
     this.recupAllProduitEnVente();
-    this.generateCompteurCategorie();
+    this.initialisation();
     this.recupPrixProduit();
     this.listProduits=[];
     console.log(this.mapQuantiteRestante);
@@ -102,7 +102,7 @@ export class CommandesComponent implements OnInit {
     );
   }
 
-  generateCompteurCategorie(): void{
+  initialisation(): void{
     this.mapQuantiteRestante = new Map<String,number>();
 
     let listproduit:Observable<Produits[]> = this.produitsService.getListProduits();
@@ -225,5 +225,80 @@ export class CommandesComponent implements OnInit {
     this.prixTotal -= prix;
   }
 
+  miseAjourStocks() {
+    for (let i = 0; i < this.listProduits.length; i++) {
+      this.miseajour(this.listProduits[i])
+    }     
+  }
+
+  sortProduitsLibelleBydate(libelle : string) :Observable<Produits[]>{
+    let listproduit: Observable<Produits[]> = this.produitsService.produitsByLibelle(libelle)
+    .pipe(map(items => items.sort(this.comparer)));
+    return listproduit
+  }
+
+  miseajour(itemmenu : ItemMenu){
+    console.log("miseajour 1 ")
+    let libelle : string =itemmenu.getLibelle()
+    if ((itemmenu.getLibelle() === "Grande") || (itemmenu.getLibelle() === "Moyenne") || (itemmenu.getLibelle() === "Petite")){
+        libelle = "Frite"
+    }
+    let listproduit: Observable<Produits[]> =this.sortProduitsLibelleBydate(libelle);
+
+    listproduit.forEach(
+      (produits: Produits[]) => {
+        let that = this;
+        produits.forEach(
+          (produit: Produits) => {
+           if(produit.quantiteRestante >= itemmenu.getQuantite()){
+             produit.quantiteRestante = produit.quantiteRestante - itemmenu.getQuantite()
+              this. miseajourproduit(produit);
+              itemmenu.setQuantite(0);
+           }else{
+            produit.quantiteRestante = 0;
+            itemmenu.setQuantite(itemmenu.getQuantite()-produit.quantiteRestante);
+            this. miseajourproduit(produit);
+           }
+          }
+        )
+      }
+    );
+    console.log("miseajour 2 ")
+  }
+
+  miseajourproduit(produit : Produits){
+    this.produitsService.putProduit2(produit)
+  }
+
+  comparer(produit1: Produits , produit2: Produits) {
+    if (produit1.dateLimite < produit2.dateLimite)
+      return -1;
+    if (produit1.dateLimite > produit2.dateLimite)
+      return 1;
+    return 0;
+  }
+
+  encaisser() {
+    if (this.prixTotal !== 0) {
+      let date = new Date().toUTCString();
+      //this.commande = new Commandes(this.date, this.strMapToObj2(this.listProduits), this.prixTotal);
+      let commande = new Commandes(null, date, this.listProduits, this.prixTotal);
+      this.commandesService.postCommande(commande);
+
+      this.miseAjourStocks()
+      this.reinitialiser();
+   
+    }
+  }
+
+  reinitialiser() {
+    console.log("reinitialiser");
+    this.prixTotal = 0;
+
+    this.listProduits = [];
+
+    this.initialisation();
+
+  }
 
 }

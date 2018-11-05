@@ -35,7 +35,7 @@
       "libelle": "Mexicanos",
       "codeFournisseur": 4,
       "quantiteInitiale": 100,
-      "quantiteRestante": 28,
+      "quantiteRestante": 0,
       "dateLimite": "2018-10-31",
       "dateAchat": "2018-09-24",
       "prixAchat": 0.3
@@ -45,7 +45,7 @@
       "libelle": "Coca",
       "codeFournisseur": 3,
       "quantiteInitiale": 50,
-      "quantiteRestante": 2,
+      "quantiteRestante": 0,
       "dateLimite": "2019-09-25",
       "dateAchat": "2018-10-21",
       "prixAchat": "4.5"
@@ -65,7 +65,7 @@
       "libelle": "Coca",
       "codeFournisseur": 3,
       "quantiteInitiale": 100,
-      "quantiteRestante": 2,
+      "quantiteRestante": 0,
       "dateLimite": "2019-07-12",
       "dateAchat": "2018-10-29",
       "prixAchat": 2
@@ -75,7 +75,7 @@
       "libelle": "Coca",
       "codeFournisseur": 3,
       "quantiteInitiale": 200,
-      "quantiteRestante": 2,
+      "quantiteRestante": 0,
       "dateLimite": "2018-12-14",
       "dateAchat": "2018-10-01",
       "prixAchat": 2
@@ -85,7 +85,7 @@
       "libelle": "Fricadelle",
       "codeFournisseur": 4,
       "quantiteInitiale": 200,
-      "quantiteRestante": 200,
+      "quantiteRestante": 0,
       "dateLimite": "2018-11-15",
       "dateAchat": "2018-10-31",
       "prixAchat": 1
@@ -208,56 +208,26 @@
       "id": 1
     },
     {
-      "dateCommande": "Sun, 04 Nov 2018 18:09:55 GMT",
-      "listProduits": [
-        {
-          "libelle": "Grande",
-          "quantite": 1,
-          "prix": 4,
-          "quantiterestante": 50
-        }
-      ],
-      "prixTotal": 4,
-      "id": 2
-    },
-    {
-      "dateCommande": "Sun, 04 Nov 2018 18:19:15 GMT",
-      "listProduits": [
-        {
-          "libelle": "Grande",
-          "quantite": 1,
-          "prix": 4,
-          "quantiterestante": 50
-        }
-      ],
-      "prixTotal": 4,
-      "id": 3
-    },
-    {
-      "dateCommande": "Sun, 04 Nov 2018 18:20:16 GMT",
+      "id": 2,
+      "dateCommande": "Mon, 05 Nov 2018 23:10:09 GMT",
       "listProduits": [
         {
           "libelle": "Coca",
-          "quantite": 1,
-          "prix": 4,
-          "quantiterestante": 3
-        }
-      ],
-      "prixTotal": 4,
-      "id": 4
-    },
-    {
-      "dateCommande": "Sun, 04 Nov 2018 18:20:39 GMT",
-      "listProduits": [
+          "quantite": 6,
+          "prix": 4
+        },
         {
-          "libelle": "Coca",
-          "quantite": 2,
-          "prix": 4,
-          "quantiterestante": 2
+          "libelle": "Mexicanos",
+          "quantite": 28,
+          "prix": 4
+        },
+        {
+          "libelle": "Fricadelle",
+          "quantite": 200,
+          "prix": 4
         }
       ],
-      "prixTotal": 8,
-      "id": 5
+      "prixTotal": 12
     }
   ]
 }
