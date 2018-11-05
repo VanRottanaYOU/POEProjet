@@ -1,0 +1,28 @@
+<div *ngIf="isLogin">
+  <div class="header">
+    <div class="title row"> 
+        <!-- <img src="assets/img/fries.png"> -->
+        <h2>El Patatas</h2> 
+    </div>
+    <div class="connection row justify-content-between">
+        <p>{{prenomUtilisateur+" "}}{{nomUtilisateur+" "}} connecté</p> 
+        <p (click)="logout()">Logout</p> 
+    </div>
+  </div>
+</div>
+<div *ngIf="isAdmin">
+<ul class="nav nav-tabs justify-content-around">
+    <li class="nav-item">
+        <a class="nav-link text-center" (click)="navigateCompta()">Accès Comptabilité</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-center" (click)="navigateStocks()">Accès Gestion Stocks</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-center" (click)="navigateEmployes()">Accès Gestion Employés</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-center" (click)="navigateCommandes()">Accès Gestion Commandes Client</a>
+    </li>
+</ul>
+</div>

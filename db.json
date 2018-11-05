@@ -1,0 +1,263 @@
+{
+  "produits": [
+    {
+      "id": 1,
+      "libelle": "Frite",
+      "codeFournisseur": 1,
+      "quantiteInitiale": 100,
+      "quantiteRestante": 49,
+      "dateLimite": "2018-11-21",
+      "dateAchat": "2018-09-21",
+      "prixAchat": 0.2
+    },
+    {
+      "id": 2,
+      "libelle": "Merguez",
+      "codeFournisseur": 2,
+      "quantiteInitiale": 200,
+      "quantiteRestante": 200,
+      "dateLimite": "2018-10-29",
+      "dateAchat": "2018-10-21",
+      "prixAchat": 0.4
+    },
+    {
+      "id": 3,
+      "libelle": "Saucisse",
+      "codeFournisseur": 2,
+      "quantiteInitiale": 300,
+      "quantiteRestante": 300,
+      "dateLimite": "2018-10-31",
+      "dateAchat": "2018-09-24",
+      "prixAchat": 0.3
+    },
+    {
+      "id": 4,
+      "libelle": "Mexicanos",
+      "codeFournisseur": 4,
+      "quantiteInitiale": 100,
+      "quantiteRestante": 28,
+      "dateLimite": "2018-10-31",
+      "dateAchat": "2018-09-24",
+      "prixAchat": 0.3
+    },
+    {
+      "id": 5,
+      "libelle": "Coca",
+      "codeFournisseur": 3,
+      "quantiteInitiale": 50,
+      "quantiteRestante": 2,
+      "dateLimite": "2019-09-25",
+      "dateAchat": "2018-10-21",
+      "prixAchat": "4.5"
+    },
+    {
+      "id": 6,
+      "libelle": "Fanta",
+      "codeFournisseur": 3,
+      "quantiteInitiale": 50,
+      "quantiteRestante": 0,
+      "dateLimite": "2019-09-21",
+      "dateAchat": "2018-10-21",
+      "prixAchat": 0.55
+    },
+    {
+      "id": 7,
+      "libelle": "Coca",
+      "codeFournisseur": 3,
+      "quantiteInitiale": 100,
+      "quantiteRestante": 2,
+      "dateLimite": "2019-07-12",
+      "dateAchat": "2018-10-29",
+      "prixAchat": 2
+    },
+    {
+      "id": 8,
+      "libelle": "Coca",
+      "codeFournisseur": 3,
+      "quantiteInitiale": 200,
+      "quantiteRestante": 2,
+      "dateLimite": "2018-12-14",
+      "dateAchat": "2018-10-01",
+      "prixAchat": 2
+    },
+    {
+      "id": 9,
+      "libelle": "Fricadelle",
+      "codeFournisseur": 4,
+      "quantiteInitiale": 200,
+      "quantiteRestante": 200,
+      "dateLimite": "2018-11-15",
+      "dateAchat": "2018-10-31",
+      "prixAchat": 1
+    }
+  ],
+  "produitsEnVente": [
+    {
+      "id": 1,
+      "libelle": "Coca",
+      "categorie": "boisson",
+      "prixvente": 4
+    },
+    {
+      "id": 2,
+      "libelle": "Fanta",
+      "categorie": "boisson",
+      "prixvente": 4
+    },
+    {
+      "id": 3,
+      "libelle": "Mexicanos",
+      "categorie": "viande",
+      "prixvente": 4
+    },
+    {
+      "id": 4,
+      "libelle": "Saucisse",
+      "categorie": "viande",
+      "prixvente": 4
+    },
+    {
+      "id": 5,
+      "libelle": "Merguez",
+      "categorie": "viande",
+      "prixvente": 4
+    },
+    {
+      "id": 6,
+      "libelle": "Grande",
+      "categorie": "Frite",
+      "prixvente": 4
+    },
+    {
+      "id": 7,
+      "libelle": "Fricadelle",
+      "categorie": "viande",
+      "prixvente": 4
+    },
+    {
+      "id": 6,
+      "libelle": "Moyenne",
+      "categorie": "Frite",
+      "prixvente": 4
+    },
+    {
+      "id": 6,
+      "libelle": "Petite",
+      "categorie": "Frite",
+      "prixvente": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "van@html.fr",
+      "password": "van",
+      "role": "admin",
+      "nom": "YOU",
+      "prenom": "Van",
+      "adresse": "rue blabla",
+      "tel": "0102030405",
+      "dateNaissance": "12/02/1982"
+    },
+    {
+      "id": 2,
+      "email": "florent@html.fr",
+      "password": "flo",
+      "role": "employe",
+      "nom": "FARDEL",
+      "prenom": "Florent",
+      "adresse": "rue du gaz",
+      "tel": "1111111111",
+      "dateNaissance": "07/07/1974"
+    },
+    {
+      "id": 3,
+      "nom": "DESHAIES",
+      "prenom": "Chris",
+      "adresse": "rue du vent",
+      "tel": "rue du vent",
+      "email": "chris@html.fr",
+      "password": "Chris",
+      "dateNaissance": "07/12/1991",
+      "role": "employe"
+    },
+    {
+      "id": 4,
+      "nom": "YOU",
+      "prenom": "Van",
+      "adresse": "rue blabla",
+      "tel": "0102030405",
+      "email": "van@hfdgdfg.fr",
+      "password": "van",
+      "dateNaissance": "12/02/1982",
+      "role": "admin"
+    }
+  ],
+  "commandes": [
+    {
+      "dateCommande": "Sun, 04 Nov 2018 18:08:43 GMT",
+      "listProduits": [
+        {
+          "libelle": "Coca",
+          "quantite": 1,
+          "prix": 4,
+          "quantiterestante": 3
+        }
+      ],
+      "prixTotal": 4,
+      "id": 1
+    },
+    {
+      "dateCommande": "Sun, 04 Nov 2018 18:09:55 GMT",
+      "listProduits": [
+        {
+          "libelle": "Grande",
+          "quantite": 1,
+          "prix": 4,
+          "quantiterestante": 50
+        }
+      ],
+      "prixTotal": 4,
+      "id": 2
+    },
+    {
+      "dateCommande": "Sun, 04 Nov 2018 18:19:15 GMT",
+      "listProduits": [
+        {
+          "libelle": "Grande",
+          "quantite": 1,
+          "prix": 4,
+          "quantiterestante": 50
+        }
+      ],
+      "prixTotal": 4,
+      "id": 3
+    },
+    {
+      "dateCommande": "Sun, 04 Nov 2018 18:20:16 GMT",
+      "listProduits": [
+        {
+          "libelle": "Coca",
+          "quantite": 1,
+          "prix": 4,
+          "quantiterestante": 3
+        }
+      ],
+      "prixTotal": 4,
+      "id": 4
+    },
+    {
+      "dateCommande": "Sun, 04 Nov 2018 18:20:39 GMT",
+      "listProduits": [
+        {
+          "libelle": "Coca",
+          "quantite": 2,
+          "prix": 4,
+          "quantiterestante": 2
+        }
+      ],
+      "prixTotal": 8,
+      "id": 5
+    }
+  ]
+}

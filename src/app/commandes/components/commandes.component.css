@@ -1,0 +1,51 @@
+body{
+    background-color: #cceeff;
+}
+
+.commandes{
+    width: 60%;
+}
+
+.row{
+    margin:0;
+}
+
+li{
+    list-style: none;
+    margin : 20px;
+}
+
+label{
+    font-weight: bold;
+    width: 100px;
+}
+
+i{
+    font-size: 40px;
+}
+
+.item{
+    width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff66;
+}
+
+.item span{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.encaissement{
+    margin: 20px;
+}
+
+h3{
+    margin-right: 10px;
+}
+
+.facture{
+    width: 40%;
+}

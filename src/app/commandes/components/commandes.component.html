@@ -1,0 +1,50 @@
+<div>
+    <div class="row">
+        <li *ngFor="let produit of produitsEnBase | async | unique:'libelle'">
+            <div class="row justify-content-between">
+                <span>{{produit.libelle}}</span>
+                <span>{{getQuantiteCommandee(produit.libelle)}}</span>
+                <span>{{getQuantiteRestante(produit.libelle)}}</span>
+            </div>
+            <div class="row justify-content-between">
+                <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                <i class="fas fa-minus" (click)="retirer(produit)"></i>
+            </div>
+        </li>
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <div class="row">
+        <li *ngFor="let produit of listProduits ">
+            <div class="row justify-content-between">
+                <span>{{produit.libelle}}</span>
+            </div>
+            <div class="row justify-content-between">
+                <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                <i class="fas fa-minus" (click)="retirer(produit)"></i>
+            </div>
+        </li>
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <div class="row">
+        <li *ngFor="let produit of produitsEnVente | async">
+            <div class="">
+                <div>{{produit.libelle}}</div>
+                <div>{{produit.categorie}}</div>
+                <div>{{produit.prixvente}}</div>
+                <span>{{getQuantiteRestante(produit.libelle)}}</span>
+            </div>
+            <div class="row justify-content-between">
+                <i class="fas fa-plus" (click)="ajout(frite)"></i>
+                <i class="fas fa-minus" (click)="retirer(frite)"></i>
+            </div>
+        </li>
+    </div>
+</div>
