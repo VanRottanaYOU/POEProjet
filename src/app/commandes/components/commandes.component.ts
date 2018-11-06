@@ -161,7 +161,9 @@ export class CommandesComponent implements OnInit {
    */
   ajout(produit: Produits) {
     if ((this.getQuantiteRestante(produit.libelle) > 0) && ( this.getQuantiteCommandee(produit.libelle) < this.getQuantiteRestante(produit.libelle) ) ) {
+      console.log("QAV :"+this.getQuantiteCommandee(produit.libelle))
       this.setQuantiteCommandee(produit.libelle, this.getQuantiteCommandee(produit.libelle) + 1);
+      console.log("QAP :"+this.getQuantiteCommandee(produit.libelle))
       this.ajouterPrix(this.getPrixProduit(produit.libelle));
       if (this.listProduits.length > 0) {
         let i;
@@ -169,17 +171,22 @@ export class CommandesComponent implements OnInit {
 
         for (i = 0; (i < this.listProduits.length); i++) {
           if (this.listProduits[i].getLibelle() === produit.libelle) {
-            this.listProduits[i].setQuantite(this.listProduits[i].getQuantite());
+            console.log("this.listProduits[i].getLibelle() :"+this.listProduits[i].getLibelle())
+            console.log("produit.libelle : "+produit.libelle)
+            console.log("this.listProduits[i].getQuantite() 1 :"+this.listProduits[i].getQuantite())
+            this.listProduits[i].setQuantite(this.getQuantiteCommandee(produit.libelle));
+            console.log("this.listProduits[i].getQuantite() 2 :"+this.listProduits[i].getQuantite())
             trouve = true;
             break;
           }
         }
         if (!trouve) {
-          this.listProduits[this.listProduits.length] = new ItemMenu(produit.libelle, this.getQuantiteRestante(produit.libelle), this.getPrixProduit(produit.libelle));
-
+          console.log("1ere liste non vide")
+          this.listProduits[this.listProduits.length] = new ItemMenu(produit.libelle, this.getQuantiteCommandee(produit.libelle), this.getPrixProduit(produit.libelle));
         }
       } else {
-        this.listProduits[0] = new ItemMenu(produit.libelle, this.getQuantiteRestante(produit.libelle), this.getPrixProduit(produit.libelle));
+        console.log("1ere liste vide")
+        this.listProduits[0] = new ItemMenu(produit.libelle, this.getQuantiteCommandee(produit.libelle), this.getPrixProduit(produit.libelle));
       }
     } else {
       alert("Le stock de "+ produit.libelle + " est épuisé")
@@ -197,10 +204,10 @@ export class CommandesComponent implements OnInit {
       let i;
       for (i = 0; (i < this.listProduits.length); i++) {
         if (this.listProduits[i].getLibelle() === produit.libelle) {
-          if (this.listProduits[i].getQuantite()==0){
+          if (this.getQuantiteCommandee(produit.libelle)==0){
             this.listProduits.splice(i, 1);
           }else{  
-            this.listProduits[i].setQuantite(this.listProduits[i].getQuantite())
+            this.listProduits[i].setQuantite(this.getQuantiteCommandee(produit.libelle))
           }
         }
       }

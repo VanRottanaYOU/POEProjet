@@ -1,42 +1,67 @@
-<div>
-    <div class="row">
-        <li *ngFor="let produit of produitsEnBase | async | unique:'libelle'">
-            <div class="row justify-content-between">
-                <span>{{produit.libelle}}</span>
-                <span>{{getQuantiteCommandee(produit.libelle)}}</span>
-                <span>{{getQuantiteRestante(produit.libelle)}}</span>
+<div class="row">
+    <div class="commandes">
+        <div class="row">
+            <div class="row">
+                <li *ngFor="let produit of produitsEnVente | async">
+                    <div class="item">
+                        <span>{{produit.libelle}}</span>
+                    </div>
+                    <div>
+                        <div class="row justify-content-between"><span>Prix Unitaire : </span><span>{{produit.prixvente}}</span></div>
+                        <div class="row justify-content-between"><span>Quantité : </span><span>{{getQuantiteCommandee(produit.libelle)}}</span></div>
+                        <div class="row justify-content-between"><span>Stocks(kg) :</span> <span>{{getQuantiteRestante(produit.libelle)}}</span></div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                        <i class="fas fa-minus" (click)="retirer(produit)"></i>
+                    </div>
+                </li>
             </div>
-            <div class="row justify-content-between">
-                <i class="fas fa-plus" (click)="ajout(produit)"></i>
-                <i class="fas fa-minus" (click)="retirer(produit)"></i>
+        </div>
+        <!-- <div class="row">
+            <div class="row">
+                <li *ngFor="let produit of produitsEnVente | async">
+                    <div class="item">
+                        <span>{{produit.libelle}}</span>
+                    </div>
+                    <div>
+                        <div class="row justify-content-between"><span>Prix Unitaire : </span><span>{{produit.prixvente}}</span></div>
+                        <div class="row justify-content-between"><span>Quantité : </span><span>{{getQuantiteCommandee(produit.libelle)}}</span></div>
+                        <div class="row justify-content-between"><span>Stocks(kg) :</span> <span>{{getQuantiteRestante(produit.libelle)}}</span></div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                        <i class="fas fa-minus" (click)="retirer(produit)"></i>
+                    </div>
+                </li>
             </div>
-        </li>
+        </div>
+        <div class="row">
+            <div class="row">
+                <li *ngFor="let produit of produitsEnVente | async">
+                    <div class="item">
+                        <span>{{produit.libelle}}</span>
+                    </div>
+                    <div>
+                        <div class="row justify-content-between"><span>Prix Unitaire : </span><span>{{produit.prixvente}}</span></div>
+                        <div class="row justify-content-between"><span>Quantité : </span><span>{{getQuantiteCommandee(produit.libelle)}}</span></div>
+                        <div class="row justify-content-between"><span>Stocks(kg) :</span> <span>{{getQuantiteRestante(produit.libelle)}}</span></div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                        <i class="fas fa-minus" (click)="retirer(produit)"></i>
+                    </div>
+                </li>
+            </div>
+        </div> -->
+
+        <div class="row encaissement">
+            <h3>TOTAL : {{prixTotal}} euros TTC</h3>
+            <button type="button" class="btn btn-success" (click)="encaisser()">Encaisser</button>
+            <button type="button" class="btn btn-danger" (click)="reinitialiser()">Annuler</button>
+        </div>
     </div>
-</div>
-
-<hr>
-
-<div>
-    <div class="row">
-        <li *ngFor="let produit of produitsEnVente | async">
-            <div class="">
-                <div>{{produit.libelle}}</div>
-                <div>{{produit.categorie}}</div>
-                <div>{{produit.prixvente}}</div>
-                <span>{{getQuantiteCommandee(produit.libelle)}}</span>
-                <span>{{getQuantiteRestante(produit.libelle)}}</span>
-            </div>
-            <div class="row justify-content-between">
-                <i class="fas fa-plus" (click)="ajout(produit)"></i>
-                <i class="fas fa-minus" (click)="retirer(produit)"></i>
-            </div>
-        </li>
+    <div class="facture">
+        <app-detailscommande class="commandes" [produitsCommandes]="listProduits" [prixTotal]="prixTotal"></app-detailscommande>
     </div>
-</div>
-
-<div>{{prixTotal}}</div>
-<div class="row encaissement">
-    <h3>TOTAL : {{prixTotal}} euros TTC</h3>
-    <button type="button" class="btn btn-success" (click)="encaisser()">Encaisser</button>
-    <button type="button" class="btn btn-danger" (click)="reinitialiser()">Annuler</button>
 </div>
