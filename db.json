@@ -75,7 +75,7 @@
       "libelle": "Coca",
       "codeFournisseur": 3,
       "quantiteInitiale": 200,
-      "quantiteRestante": 9,
+      "quantiteRestante": 8,
       "dateLimite": "2018-12-14",
       "dateAchat": "2018-10-01",
       "prixAchat": 2
@@ -180,17 +180,6 @@
       "password": "Chris",
       "dateNaissance": "07/12/1991",
       "role": "employe"
-    },
-    {
-      "id": 4,
-      "nom": "YOU",
-      "prenom": "Van",
-      "adresse": "rue blabla",
-      "tel": "0102030405",
-      "email": "van@hfdgdfg.fr",
-      "password": "van",
-      "dateNaissance": "12/02/1982",
-      "role": "admin"
     }
   ],
   "commandes": [

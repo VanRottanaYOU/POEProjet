@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class EmployesComponent implements OnInit {
 
-  private ListUsers : Observable<User[]>;
+  private ListUsers : User[];
   private isLoaded : boolean;
   private nom :string;
   private prenom :string;
@@ -37,8 +37,11 @@ export class EmployesComponent implements OnInit {
 
   getListUsers() : void {
     this.isLoaded = false;
-    this.ListUsers = this.userservice.getListUsers()
-    .pipe(finalize( () => this.isLoaded = true))
+    this.userservice.getListUsers()
+    .subscribe(
+      users => this.ListUsers = users
+    );
+    //.pipe(finalize( () => this.isLoaded = true))
     
   }
 

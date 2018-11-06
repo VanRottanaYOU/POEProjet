@@ -1,4 +1,25 @@
 <div class="row">
+    <div class="row">
+        <li *ngFor="let produit of produitsEnBase | async | unique:'produit.libelle'">
+            <div class="item">
+                <span>{{produit.libelle}}</span>
+            </div>
+            <div>
+                <div class="row justify-content-between"><span>Prix Unitaire : </span><span>{{produit.prixvente}}</span></div>
+                <div class="row justify-content-between"><span>Quantité : </span><span>{{getQuantiteCommandee(produit.libelle)}}</span></div>
+                <div class="row justify-content-between"><span>Stocks(kg) :</span> <span>{{getQuantiteRestante(produit.libelle)}}</span></div>
+            </div>
+            <div class="row justify-content-between">
+                <i class="fas fa-plus" (click)="ajout(produit)"></i>
+                <i class="fas fa-minus" (click)="retirer(produit)"></i>
+            </div>
+        </li>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
     <div class="commandes">
         <div class="row">
             <div class="row">
